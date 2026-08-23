@@ -250,20 +250,31 @@
             margin: 10px 0;
             border: 1px solid #ddd;
         }
-        .contact-row a {
-            color: #27ae60;
+        .contact-row a.num-link {
+            color: #2c3e50;
             font-weight: bold;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
         }
-        .copy-btn {
-            background: #e67e22;
+        .modal-btn {
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 6px 14px;
             border-radius: 4px;
             cursor: pointer;
             font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .call-btn {
+            background: #27ae60;
+        }
+        .wa-btn {
+            background: #25d366;
+        }
+        .copy-btn {
+            background: #e67e22;
         }
         .close-modal {
             background: #e74c3c;
@@ -356,13 +367,15 @@
             letter-spacing: 0.5px;
             line-height: 1.6;
         }
+        /* YAHAN HUA HAI AAPKE NAAM KA STYLE CHANGE (Tech / Monospace Style) */
         .developer-credit strong {
             display: block;
-            color: #2c3e50;
-            font-size: 16px;
+            color: #3498db;
+            font-size: 17px;
             margin-top: 2px;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: 'Courier New', Courier, monospace; /* 14 number wala font */
+            font-weight: bold;
         }
     </style>
 </head>
@@ -480,7 +493,7 @@
             <p>&copy; 2026 Samikshanjali Group. All Rights Reserved.</p>
             <p>Disclaimer: For informational display only. Please consult a registered medical practitioner before use.</p>
             
-            <!-- Ashish Bhai ka 3-Line Credit -->
+            <!-- Ashish Bhai ka 3-Line Credit (TECH STYLE) -->
             <div class="developer-credit">
                 Designed & Developed<br>
                 by<br>
@@ -515,7 +528,7 @@
         <footer>
             <p>&copy; 2026 Samikshanjali Group. All Rights Reserved.</p>
             
-            <!-- Ashish Bhai ka 3-Line Credit -->
+            <!-- Ashish Bhai ka 3-Line Credit (TECH STYLE) -->
             <div class="developer-credit">
                 Designed & Developed<br>
                 by<br>
@@ -537,14 +550,22 @@
             <h3>Please contact Mr. Vivek Kumar</h3>
             <p style="font-size: 13px; color: #666; margin-bottom: 15px;">For orders and inquiries, reach out directly:</p>
             
+            <!-- Call Row -->
             <div class="contact-row">
-                <span>📞 <a href="tel:+916386293930">+91 63862 93930</a></span>
-                <a href="tel:+916386293930" class="copy-btn" style="background:#27ae60; text-decoration:none;">Call</a>
+                <span>📞 <a href="tel:+916386293930" class="num-link">+91 63862 93930</a></span>
+                <a href="tel:+916386293930" class="modal-btn call-btn">Call</a>
             </div>
 
+            <!-- WhatsApp Chat Row with Auto-Message -->
+            <div class="contact-row">
+                <span>💬 <a href="https://wa.me/916386293930?text=Hello%20Mr.%20Vivek%20Kumar%2C%20I%20am%20interested%20in%20your%20company's%20medicines." target="_blank" class="num-link">+91 63862 93930</a></span>
+                <a href="https://wa.me/916386293930?text=Hello%20Mr.%20Vivek%20Kumar%2C%20I%20am%20interested%20in%20your%20company's%20medicines." target="_blank" class="modal-btn wa-btn">Chat</a>
+            </div>
+
+            <!-- Email Row -->
             <div class="contact-row">
                 <span id="email-text" style="font-size: 12px; font-weight: bold; color: #333;">samikshanjaligroupcompnies@gmail.com</span>
-                <button class="copy-btn" onclick="copyEmail()">Copy</button>
+                <button class="modal-btn copy-btn" onclick="copyEmail()">Copy</button>
             </div>
 
             <button class="close-modal" onclick="closeModal()">Close</button>
