@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samikshangali Group</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            color: #e67e22;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+        .card-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .btn-group {
+            padding: 0 20px 20px 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            flex: 1;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .btn-read {
+            background-color: #f39c12;
+            color: white;
+        }
+        .btn-buy {
+            background-color: #27ae60;
+            color: white;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">Samikshangali Group 🌿</div>
+        <div><a href="#products" style="color: #333; text-decoration: none; font-weight: bold;">Products</a></div>
+    </header>
+
+    <div class="hero">
+        <h1>Welcome to Samikshangali Group</h1>
+        <p>Innovation, Quality & Care in Healthcare Solutions</p>
+    </div>
+
+    <div class="container" id="products">
+        <h2 class="section-title">Our Products & Innovations</h2>
+        
+        <div class="grid">
+            <!-- Product 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Medicine">
+                <div class="card-content">
+                    <div class="card-title">Advanced Healthcare Solution</div>
+                    <div class="card-desc">Science and care are at the heart of Samikshangali Group, delivering reliable wellness products.</div>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-read">Read More</a>
+                    <a href="https://wa.me/?text=I%20want%20to%20buy%20this%20product" class="btn btn-buy">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400" alt="Medicine">
+                <div class="card-content">
+                    <div class="card-title">Quality Pharmaceuticals</div>
+                    <div class="card-desc">Our vision is to simplify global healthcare processes with sustainable quality culture.</div>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-read">Read More</a>
+                    <a href="https://wa.me/?text=I%20want%20to%20buy%20this%20product" class="btn btn-buy">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400" alt="Medicine">
+                <div class="card-content">
+                    <div class="card-title">Medical Equipment & Care</div>
+                    <div class="card-desc">High-grade medical instruments designed for accurate and fast daily monitoring.</div>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-read">Read More</a>
+                    <a href="https://wa.me/?text=I%20want%20to%20buy%20this%20product" class="btn btn-buy">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Samikshangali Group. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
