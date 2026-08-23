@@ -3,62 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samikshangali Group</title>
+    <title>Samikshanjali Pharma</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 0 0 60px 0;
             background-color: #f4f4f4;
             color: #333;
         }
         header {
             background-color: #ffffff;
-            padding: 15px 30px;
+            padding: 12px 20px;
             display: flex;
-            justify-content: flex-end;
             align-items: center;
+            justify-content: space-between;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-box img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e67e22;
+        }
+        .logo-box span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .page {
+            display: none;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .page.active {
+            display: block;
         }
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 90px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #e67e22;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            padding: 70px 20px;
         }
         .hero h1 {
-            font-size: 32px;
+            font-size: 28px;
             margin: 10px 0;
+        }
+        .disclaimer {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px 15px;
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ffeeba;
         }
         .container {
             max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
         .section-title {
             color: #e67e22;
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 15px;
             border-bottom: 2px solid #e67e22;
-            padding-bottom: 8px;
+            padding-bottom: 5px;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
         }
         .card {
             background: #ffffff;
@@ -71,37 +95,39 @@
         }
         .card img {
             width: 100%;
-            height: 200px;
+            height: 190px;
             object-fit: cover;
         }
         .card-content {
-            padding: 20px;
+            padding: 15px;
         }
         .card-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: #e67e22;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .card-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            margin-bottom: 15px;
+            line-height: 1.4;
         }
         .btn-group {
-            padding: 0 20px 20px 20px;
+            padding: 0 15px 15px 15px;
             display: flex;
             gap: 10px;
         }
         .btn {
             flex: 1;
-            padding: 10px 0;
+            padding: 8px 0;
             text-align: center;
             border-radius: 4px;
             font-weight: bold;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
         }
         .btn-read {
             background-color: #f39c12;
@@ -111,77 +137,310 @@
             background-color: #27ae60;
             color: white;
         }
-        footer {
-            background-color: #222;
-            color: white;
+        
+        /* About Page Styles */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
             text-align: center;
+        }
+        .owner-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e67e22;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .card-img-about, .info-img-about {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Popup Modal Styles (3-Part Split Screen) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-space {
+            flex: 1;
+            width: 100%;
+        }
+        .modal-content {
+            background: #ffffff;
+            width: 90%;
+            max-width: 400px;
             padding: 20px;
-            margin-top: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-top: 4px solid #27ae60;
+        }
+        .modal-content h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        .contact-row a {
+            color: #27ae60;
+            font-weight: bold;
+            text-decoration: none;
             font-size: 14px;
+        }
+        .copy-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .close-modal {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+        .nav-item {
+            text-align: center;
+            cursor: pointer;
+            color: #555;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .nav-item.active {
+            color: #e67e22;
+        }
+        .nav-item span {
+            display: block;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div><a href="#products" style="color: #333; text-decoration: none; font-weight: bold;">Products</a></div>
-    </header>
-
-    <div class="hero">
-        <!-- Aapka Bada Center Logo -->
-        <img src="IMG-20260823-WA0001.jpg" alt="SP Logo" class="hero-logo">
-        <h1>Welcome to Samikshangali Group</h1>
-        <p>Innovation, Quality & Care in Healthcare Solutions</p>
+    <div class="disclaimer">
+        <strong>Disclaimer:</strong> Educational & informational showcase. Consult a registered medical practitioner before taking any medicine.
     </div>
 
-    <div class="container" id="products">
-        <h2 class="section-title">Our Products & Innovations</h2>
-        
-        <div class="grid">
-            <!-- Product 1 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Medicine">
-                <div class="card-content">
-                    <div class="card-title">Advanced Healthcare Solution</div>
-                    <div class="card-desc">Science and care are at the heart of Samikshangali Group, delivering reliable wellness products.</div>
-                </div>
-                <div class="btn-group">
-                    <a href="#" class="btn btn-read">Read More</a>
-                    <a href="https://wa.me/?text=I%20want%20to%20buy%20this%20product" class="btn btn-buy">Buy Now</a>
-                </div>
-            </div>
+    <header>
+        <div class="logo-box">
+            <!-- Top Logo Image -->
+            <img src="66595.jpg" alt="SP Logo">
+            <span>Samikshanjali Pharma</span>
+        </div>
+    </header>
 
-            <!-- Product 2 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400" alt="Medicine">
-                <div class="card-content">
-                    <div class="card-title">Quality Pharmaceuticals</div>
-                    <div class="card-desc">Our vision is to simplify global healthcare processes with sustainable quality culture.</div>
-                </div>
-                <div class="btn-group">
-                    <a href="#" class="btn btn-read">Read More</a>
-                    <a href="https://wa.me/?text=I%20want%20to%20buy%20this%20product" class="btn btn-buy">Buy Now</a>
-                </div>
-            </div>
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active">
+        <div class="hero" style="border-radius: 8px; margin-bottom: 20px;">
+            <h1>Welcome to Samikshanjali Pharma</h1>
+            <p>Trusted Medicines, Healthy Tomorrow</p>
+        </div>
 
-            <!-- Product 3 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400" alt="Medicine">
-                <div class="card-content">
-                    <div class="card-title">Medical Equipment & Care</div>
-                    <div class="card-desc">High-grade medical instruments designed for accurate and fast daily monitoring.</div>
+        <div class="container" style="margin: 0; padding: 0;">
+            <h2 class="section-title">Our Products</h2>
+            
+            <div class="grid" id="product-grid">
+                <!-- Product 1: Kuredol-SP -->
+                <div class="card">
+                    <img src="66697.jpg" alt="Kuredol-SP">
+                    <div class="card-content">
+                        <div class="card-title">Kuredol-SP Tablets</div>
+                        <div class="card-desc">Aceclofenac, Paracetamol & Serratiopeptidase Tablets. MRP: ₹139.35 (10 Tabs).</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/search?q=Kuredol-SP+tablet" target="_blank" class="btn btn-read">Read More</a>
+                        <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                    </div>
                 </div>
-                <div class="btn-group">
-                    <a href="#" class="btn btn-read">Read More</a>
-                    <a href="https://wa.me/?text=I%20want%20to%20buy%20this%20product" class="btn btn-buy">Buy Now</a>
+
+                <!-- Product 2: Zirub-DSR -->
+                <div class="card">
+                    <img src="66696.jpg" alt="Zirub-DSR">
+                    <div class="card-content">
+                        <div class="card-title">Zirub-DSR Capsules</div>
+                        <div class="card-desc">Rabeprazole Sodium & Domperidone Capsules. MRP: ₹130.00 (10 Caps).</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/search?q=Zirub-DSR+capsule" target="_blank" class="btn btn-read">Read More</a>
+                        <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Zem-DSR -->
+                <div class="card">
+                    <img src="66695.jpg" alt="Zem-DSR">
+                    <div class="card-content">
+                        <div class="card-title">Zem-DSR Capsules</div>
+                        <div class="card-desc">Pantoprazole & Domperidone Capsules. MRP: ₹140.00 (10 Caps).</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/search?q=Zem-DSR+capsule" target="_blank" class="btn btn-read">Read More</a>
+                        <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Accecloin Plus -->
+                <div class="card">
+                    <img src="66694.jpg" alt="Accecloin Plus">
+                    <div class="card-content">
+                        <div class="card-title">Accecloin Plus Tablets</div>
+                        <div class="card-desc">Aceclofenac & Paracetamol Tablets IP. Relief in pain & fever.</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/search?q=Accecloin+Plus+tablet" target="_blank" class="btn btn-read">Read More</a>
+                        <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Product 5: T-Gynodrol -->
+                <div class="card">
+                    <img src="66692.jpg" alt="T-Gynodrol">
+                    <div class="card-content">
+                        <div class="card-title">T-Gynodrol Urine Tonic</div>
+                        <div class="card-desc">Herbal Care for Women's Health. Natural Support & Wellness (200 ml).</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/search?q=T-Gynodrol+tonic" target="_blank" class="btn btn-read">Read More</a>
+                        <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Product 6: Livodrol -->
+                <div class="card">
+                    <img src="66690.jpg" alt="Livodrol">
+                    <div class="card-content">
+                        <div class="card-title">Livodrol Liver Syrup</div>
+                        <div class="card-desc">Herbal liver syrup enriched with natural herbs for healthy liver (200 ml).</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/search?q=Livodrol+syrup" target="_blank" class="btn btn-read">Read More</a>
+                        <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Samikshangali Group. All Rights Reserved.</p>
-    </footer>
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="page">
+        <h2 class="section-title" style="text-align: center;">About Owner & Company</h2>
+        <div class="about-container">
+            <!-- 1st: Vivek Kumar Photo -->
+            <div>
+                <img src="66698.jpg" alt="Mr. Vivek Kumar" class="owner-img">
+                <h3 style="margin: 10px 0 5px 0; color: #2c3e50;">Drx. Vivek Kumar</h3>
+                <p style="color: #666; margin: 0; font-size: 14px;">Owner & Founder</p>
+            </div>
 
+            <!-- 2nd: Visiting Card / Contact Info Details -->
+            <img src="66693.jpg" alt="Visiting Card" class="card-img-about">
+
+            <!-- 3rd: Additional Product/Info Photo -->
+            <img src="66699.jpg" alt="Company Info" class="info-img-about">
+        </div>
+    </div>
+
+    <!-- BUY POPUP MODAL (3-Part Split Screen) -->
+    <div id="buyModal" class="modal">
+        <div class="modal-space" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <h3>Please contact Mr. Vivek Kumar</h3>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">For orders and inquiries, reach out directly:</p>
+            
+            <div class="contact-row">
+                <span>📞 <a href="tel:+916386293930">+91 63862 93930</a></span>
+                <a href="tel:+916386293930" class="copy-btn" style="background:#27ae60; text-decoration:none;">Call</a>
+            </div>
+
+            <div class="contact-row">
+                <span id="email-text" style="font-size: 12px; font-weight: bold; color: #333;">samikshanjaligroupcompnies@gmail.com</span>
+                <button class="copy-btn" onclick="copyEmail()">Copy</button>
+            </div>
+
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+        <div class="modal-space" onclick="closeModal()"></div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <div class="bottom-nav">
+        <a class="nav-item active" id="nav-home" onclick="switchPage('home')">
+            <span>🏠</span>Home
+        </a>
+        <a class="nav-item" id="nav-about" onclick="switchPage('about')">
+            <span>ℹ️</span>About
+        </a>
+    </div>
+
+    <script>
+        function switchPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            if(page === 'home') {
+                document.getElementById('home-page').classList.add('active');
+                document.getElementById('nav-home').classList.add('active');
+            } else if(page === 'about') {
+                document.getElementById('about-page').classList.add('active');
+                document.getElementById('nav-about').classList.add('active');
+            }
+            window.scrollTo(0,0);
+        }
+
+        function openModal() {
+            document.getElementById('buyModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('buyModal').style.display = 'none';
+        }
+
+        function copyEmail() {
+            const email = "samikshanjaligroupcompnies@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copied to clipboard!");
+            });
+        }
+    </script>
 </body>
 </html>
