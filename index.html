@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samikshangali Group</title>
+    <title>Samikshanjali Group</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,14 +28,16 @@
             align-items: center;
             gap: 10px;
         }
+        /* Header Logo */
         .logo-box img {
             height: 42px;
             width: 42px;
             border-radius: 50%;
-            object-fit: contain; /* Logo kategi nahi */
+            object-fit: contain; 
             border: 2px solid #e67e22;
             background: #fff;
             padding: 2px;
+            cursor: zoom-in;
         }
         .logo-box span {
             font-size: 18px;
@@ -63,6 +65,7 @@
             align-items: center;
             justify-content: center;
         }
+        /* Banner Logo */
         .hero-logo {
             width: 120px;
             height: 120px;
@@ -73,6 +76,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             background: #fff;
             padding: 4px;
+            cursor: zoom-in;
         }
         .hero h1 {
             font-size: 28px;
@@ -109,7 +113,7 @@
         .card img {
             width: 100%;
             height: 250px; 
-            object-fit: contain; /* Product ki photo poori dikhegi */
+            object-fit: contain;
             background-color: #fafafa;
             padding: 10px;
             box-sizing: border-box;
@@ -164,6 +168,7 @@
             gap: 20px;
             text-align: center;
         }
+        /* About Logo */
         .about-logo {
             width: 100px;
             height: 100px;
@@ -173,13 +178,14 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             background: #fff;
             padding: 3px;
+            cursor: zoom-in;
         }
         
         /* CUBE SHAPE FOR VIVEK JI'S PHOTO */
         .owner-img-container {
             width: 220px;
-            height: 260px; /* Thoda lamba rakha h taaki poori fit aaye */
-            border-radius: 12px; /* Yeh raha aapka Cube Shape */
+            height: 260px;
+            border-radius: 12px;
             border: 4px solid #e67e22;
             overflow: hidden;
             margin: 0 auto;
@@ -190,7 +196,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top; /* Baal nahi katenge */
+            object-position: top;
         }
         
         .card-img-about, .info-img-about {
@@ -284,6 +290,8 @@
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+            background-color: #fff;
+            padding: 10px;
         }
         .close-viewer {
             position: absolute;
@@ -299,7 +307,7 @@
             font-size: 16px;
         }
 
-        /* NAYE PROFESSIONAL BOTTOM NAVIGATION LOGOS */
+        /* BOTTOM NAVIGATION BAR */
         .bottom-nav {
             position: fixed;
             bottom: 0; left: 0; width: 100%;
@@ -331,12 +339,27 @@
             color: #e67e22;
         }
 
-        /* Footer */
+        /* Footer & Credit */
         footer {
             text-align: center;
             padding: 20px 15px 40px 15px;
             font-size: 11px;
             color: #999;
+        }
+        .developer-credit {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+        .developer-credit strong {
+            display: block;
+            color: #e67e22;
+            font-size: 16px;
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -344,16 +367,18 @@
 
     <header>
         <div class="logo-box">
-            <img src="logo.jpg" alt="SP Logo">
-            <span>Samikshangali Group</span>
+            <!-- Header Logo Clickable -->
+            <img src="logo.jpg" alt="SP Logo" onclick="viewImage('logo.jpg')">
+            <span>Samikshanjali Group</span>
         </div>
     </header>
 
     <!-- HOME PAGE -->
     <div id="home-page" class="page active">
         <div class="hero" style="border-radius: 8px; margin-bottom: 20px;">
-            <img src="logo.jpg" alt="Samikshangali Logo" class="hero-logo">
-            <h1>Welcome to Samikshangali Group</h1>
+            <!-- Hero Logo Clickable -->
+            <img src="logo.jpg" alt="Samikshanjali Logo" class="hero-logo" onclick="viewImage('logo.jpg')">
+            <h1>Welcome to Samikshanjali Group</h1>
             <p>Trusted Medicines, Healthy Tomorrow</p>
         </div>
 
@@ -449,8 +474,15 @@
         </div>
         
         <footer>
-            <p>&copy; 2026 Samikshangali Group. All Rights Reserved.</p>
+            <p>&copy; 2026 Samikshanjali Group. All Rights Reserved.</p>
             <p>Disclaimer: For informational display only. Please consult a registered medical practitioner before use.</p>
+            
+            <!-- Ashish Bhai ka 3-Line Credit -->
+            <div class="developer-credit">
+                Designed & Developed<br>
+                by<br>
+                <strong>Ashish</strong>
+            </div>
         </footer>
     </div>
 
@@ -459,8 +491,9 @@
         <h2 class="section-title" style="text-align: center;">About Owner & Company</h2>
         <div class="about-container">
             <div>
-                <img src="logo.jpg" alt="SP Logo" class="about-logo">
-                <h2 style="color: #e67e22; margin: 8px 0 0 0; font-size: 22px;">Samikshangali Group</h2>
+                <!-- About Logo Clickable -->
+                <img src="logo.jpg" alt="SP Logo" class="about-logo" onclick="viewImage('logo.jpg')">
+                <h2 style="color: #e67e22; margin: 8px 0 0 0; font-size: 22px;">Samikshanjali Group</h2>
             </div>
             
             <!-- Vivek Kumar Photo (CUBE SHAPE) -->
@@ -477,7 +510,14 @@
         </div>
         
         <footer>
-            <p>&copy; 2026 Samikshangali Group. All Rights Reserved.</p>
+            <p>&copy; 2026 Samikshanjali Group. All Rights Reserved.</p>
+            
+            <!-- Ashish Bhai ka 3-Line Credit -->
+            <div class="developer-credit">
+                Designed & Developed<br>
+                by<br>
+                <strong>Ashish</strong>
+            </div>
         </footer>
     </div>
 
@@ -509,7 +549,7 @@
         <div class="modal-space" onclick="closeModal()"></div>
     </div>
 
-    <!-- BOTTOM NAVIGATION BAR (WITH NEW MODERN LOGOS) -->
+    <!-- BOTTOM NAVIGATION BAR -->
     <div class="bottom-nav">
         <a class="nav-item active" id="nav-home" onclick="switchPage('home')">
             <!-- Home Icon SVG -->
