@@ -49,11 +49,25 @@
         .page.active {
             display: block;
         }
+        /* Home Page Banner */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 70px 20px;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e67e22;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
         .hero h1 {
             font-size: 28px;
@@ -138,11 +152,20 @@
             gap: 20px;
             text-align: center;
         }
+        .about-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e67e22;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         .owner-img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: top; /* Baal (hair) na kate uske liye */
             border: 4px solid #e67e22;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
@@ -267,6 +290,8 @@
     <!-- HOME PAGE -->
     <div id="home-page" class="page active">
         <div class="hero" style="border-radius: 8px; margin-bottom: 20px;">
+            <!-- Bada Logo in Center -->
+            <img src="logo.jpg" alt="Samikshangali Logo" class="hero-logo">
             <h1>Welcome to Samikshangali Group</h1>
             <p>Trusted Medicines, Healthy Tomorrow</p>
         </div>
@@ -379,17 +404,20 @@
     <div id="about-page" class="page">
         <h2 class="section-title" style="text-align: center;">About Owner & Company</h2>
         <div class="about-container">
-            <!-- 1st: Vivek Kumar Photo -->
+            <!-- SP Logo on About Page -->
+            <img src="logo.jpg" alt="SP Logo" class="about-logo">
+            
+            <!-- Vivek Kumar Photo (Adjusted to not cut hair) -->
             <div>
                 <img src="vivek.jpg" alt="Mr. Vivek Kumar" class="owner-img">
                 <h3 style="margin: 10px 0 5px 0; color: #2c3e50;">Drx. Vivek Kumar</h3>
                 <p style="color: #666; margin: 0; font-size: 14px;">Owner & Founder</p>
             </div>
 
-            <!-- 2nd: Visiting Card / Contact Info Details -->
+            <!-- Visiting Card / Contact Info Details -->
             <img src="card.jpg" alt="Visiting Card" class="card-img-about">
 
-            <!-- 3rd: Additional Company Info Photo -->
+            <!-- Additional Company Info Photo -->
             <img src="info.jpg" alt="Company Info" class="info-img-about">
         </div>
         
