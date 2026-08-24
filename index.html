@@ -118,6 +118,22 @@
             padding-bottom: 5px;
         }
         
+        /* Home Page Info Image Styling */
+        .home-info-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .home-info-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: zoom-in;
+            background: #fff;
+            padding: 5px;
+            border: 2px solid #e67e22;
+        }
+
         /* Product Cards */
         .grid {
             display: grid;
@@ -426,6 +442,11 @@
             <img src="logo.jpg" alt="Samikshanjali Logo" class="hero-logo" onclick="viewImage('logo.jpg')">
             <h1>Welcome to Samikshanjali Pharma</h1>
             <p>Trusted Medicines, Healthy Tomorrow</p>
+        </div>
+
+        <!-- INFO IMAGE ADDED HERE (Between Hero Logo and Products) -->
+        <div class="home-info-container">
+            <img src="info.jpg" alt="Company Info" class="home-info-img" onclick="viewImage('info.jpg')">
         </div>
 
         <div class="container" style="margin: 0; padding: 0;">
